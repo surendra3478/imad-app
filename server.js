@@ -14,7 +14,18 @@ app.get('/ui/style.css', function (req, res) {
 });
 
 app.get(`ui/article-one.html`,function(req,res){
-    res.sendFile(path.join(__direname,`úi`,`árticle-one.html`));
+    //res.sendFile(path.join(__direname,`úi`,`árticle-one.html`));
+    res.send(`article-one requested and will be served here`);
+    
+});
+app.get(`ui/article-two.html`,function(req,res){
+    //res.sendFile(path.join(__direname,`úi`,`árticle-two.html`));
+    res.send(`article-one requested and will be served here`);
+    
+});
+app.get(`ui/article-three.html`,function(req,res){
+    //res.sendFile(path.join(__direname,`úi`,`árticle-one.html`));
+    res.send(`article-one requested and will be served here`);
     
 });
 app.get('/ui/madi.png', function (req, res) {
