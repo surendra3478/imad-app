@@ -38,15 +38,32 @@ var nameInput=document.getElementById("name");
 var name1=nameInput.value;
 var submit=document.getElementById("submit_btn");
 submit.onclick=function(){
-  var list=``;
-  var names=['name1', 'name2', 'name3'];
-  for(var i=0;i<names.length;i++)
-  {
-      list+='<li>'+names[i]+'</li>';
-  }
-  var ui=document.getElementById('namelist');
+   var request=new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if (request.readyState === XMLHttpRequest.DONE) {
+        // Everything is good, the response was received.
+          if(request.status==200)
+          {
+            
+            var list=``;
+          var names=JSON.parse(request.responseText);
+          for(var i=0;i<names.length;i++)
+          {
+              list+='<li>'+names[i]+'</li>';
+          }
+          var ui=document.getElementById('namelist');
+          
+           ui.innerHTML=list;
+          }
+        }  
+    };
+    request.open('GET', 'http://surendrakakinada.imad.hasura-app.io/submit-btn/?name='+name1, true);
+    request.send(null);
+    
   
-   ui.innerHTML=list;
+  
+  
+   
   
   
 };
