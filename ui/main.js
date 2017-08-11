@@ -36,6 +36,7 @@ btn.onclick=function(){
 //submit
 var nameInput=document.getElementById("name");
 var name1=nameInput.value;
+alert(name1);
 var submit=document.getElementById("submit_btn");
 var names=[];
 submit.onclick=function(){
