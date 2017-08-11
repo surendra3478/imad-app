@@ -48,8 +48,8 @@ submit.onclick=function(){
             
             var list=``;
            names=JSON.parse[request.responseText];
-          alert(names);
-          for(var i=0;i<names.length;i++)
+         // alert(names);
+          for(var i=0;i<names.Length;i++)
           {
               list+='<li>'+names[i]+'</li>';
           }
