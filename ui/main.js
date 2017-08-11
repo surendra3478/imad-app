@@ -15,10 +15,22 @@ img.onclick=function(){
     
 }*/
 var btn=document.getElementById("counter");
-var counter=0;
+ 
 btn.onclick=function(){
+    var request=XMLHttpRequest;
+    httpRequest.onreadystatechange = function(){
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        // Everything is good, the response was received.
+          if(request.status==200)
+          {
+            var counter=request.responseText;
+            var span=document.getElementById("count");
+            span.innerHTML=counter.toString();
+          }
+        } else {
+            // Not ready yet.
+        }
+    };
+
     
-    counter=counter+1;
-    var span=document.getElementById("count");
-    span.innerHTML=counter;
 };
