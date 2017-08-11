@@ -47,7 +47,7 @@ submit.onclick=function(){
           {
             
             var list=``;
-           names=JSON.parse[request.responseText];
+           names=JSON.parse(request.responseText);
          // alert(names);
           for(var i=0;i<names.Length;i++)
           {
