@@ -46,7 +46,7 @@ submit.onclick=function(){
   }
   var ul=document.getElementById('namelist');
   
-  ui.innerHTML=list;
+  var ui.innerHTML=list;
   
   
 };
