@@ -56,7 +56,7 @@ submit.onclick=function(){
               list+='<li>'+names[i]+'</li>';
           }
           var ui=document.getElementById('namelist');
-          alert(list);
+           
            ui.innerHTML=list;
           }
         }  
