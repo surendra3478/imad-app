@@ -17,7 +17,7 @@ img.onclick=function(){
 var btn=document.getElementById("counter");
  
 btn.onclick=function(){
-    var request=XMLHttpRequest;
+    var request=new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (request.readyState === XMLHttpRequest.DONE) {
         // Everything is good, the response was received.
