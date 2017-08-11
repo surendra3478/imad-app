@@ -34,13 +34,14 @@ btn.onclick=function(){
 };
 
 //submit
-var nameInput=document.getElementById("name");
-var name1=nameInput.value;
-alert(name1);
+
+
 var submit=document.getElementById("submit_btn");
 var names=[];
 submit.onclick=function(){
-   var request=new XMLHttpRequest();
+    var nameInput=document.getElementById("name");
+    var name1=nameInput.value;
+    var request=new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (request.readyState === XMLHttpRequest.DONE) {
         // Everything is good, the response was received.
