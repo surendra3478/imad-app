@@ -34,7 +34,7 @@ btn.onclick=function(){
 };
 
 //submit
-var nameInput=document.getElemantById("name");
+var nameInput=document.getElementById("name");
 var name1=nameInput.value;
 var submit=document.getElementById("submit_btn");
 submit.onclick=function(){
