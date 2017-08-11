@@ -20,5 +20,5 @@ btn.onclick=function(){
     
     counter=counter+1;
     var span=document.getElementById("span");
-    span.innerHtml=counter;
+    span.innerHTML=counter;
 };
