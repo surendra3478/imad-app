@@ -47,6 +47,7 @@ submit.onclick=function(){
             
             var list=``;
           var names=JSON.parse(request.responseText);
+          alert(names);
           for(var i=0;i<names.length;i++)
           {
               list+='<li>'+names[i]+'</li>';
