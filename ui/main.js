@@ -18,8 +18,8 @@ var btn=document.getElementById("counter");
  
 btn.onclick=function(){
     var request=XMLHttpRequest;
-    httpRequest.onreadystatechange = function(){
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    request.onreadystatechange = function(){
+        if (request.readyState === XMLHttpRequest.DONE) {
         // Everything is good, the response was received.
           if(request.status==200)
           {
@@ -27,10 +27,9 @@ btn.onclick=function(){
             var span=document.getElementById("count");
             span.innerHTML=counter.toString();
           }
-        } else {
-            // Not ready yet.
-        }
+        }  
     };
 
-    
+    request.open('GET', 'http://surendrakakinada.imad.hasura-app.io/counter', true);
+    request.send(null);
 };
