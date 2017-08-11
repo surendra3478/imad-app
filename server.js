@@ -91,7 +91,7 @@ app.get('/ui/style.css', function (req, res) {
 });
 var names=[];
 app.get('/submit-btn',function (req,res){
-    alert(req.query.name);
+    
     var name=req.query.name;
     names.push(name);
     res.send(JSON.stringify(names));
