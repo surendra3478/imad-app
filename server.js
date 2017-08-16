@@ -126,7 +126,7 @@ app.get('/articles/:articleName', function (req, res) {
     var articleName=req.params.articleName;
     //res.send( "select * from article where title='"+ articleName+"'");
   
-    pool.query("select * from article where title='"+ articleName+"'",function(err,result){
+    pool.query("select * from article where title=$1",[articleName],function(err,result){
          if(err)
          {
             
