@@ -124,11 +124,12 @@ app.get('/test-db', function (req, res) {
 
 app.get('/articles/:articleName', function (req, res) {
     var articleName=req.params.articleName;
-    res.send( "select * from article where title='"+ articleName+"'");
+    //res.send( "select * from article where title='"+ articleName+"'");
   
     pool.query("select * from article where title='"+ articleName+"'",function(err,result){
          if(err)
          {
+             res.send( "select * from article where title='"+ articleName+"'");
              res.status(500).send(err.toString());
          }
          else
