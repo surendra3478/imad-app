@@ -71,7 +71,7 @@ var htmlTemplate=`
                 </div>
                 <hr>
                 <div>
-                    ${heading};
+                    ${heading}
                 </div>
                 <div>
                    ${date.toDateString()}
