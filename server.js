@@ -122,9 +122,29 @@ app.get('/test-db', function (req, res) {
  
 });
 
-app.get('/:articleName', function (req, res) {
-    var articleName=req.params.articleName;
- res.send(createTemplate(articles[articleName]));
+app.get('/articles/articleName', function (req, res) {
+    
+    var articleName=rew.params.articleName;
+    pool.query("select * from articles where title='"+ articleName+"'",function(err,result){
+         if(err)
+         {
+             res.status(500).send(err.toString());
+         }
+         else
+         {
+             if(res.rows.length==0)
+             {
+                 res.status(404).send("article not found");
+                 
+             }
+             {
+             var articleData=res.rows[0];
+             res.send(createTemplate(articleData));
+             }
+         }
+        
+    });
+ 
 });
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
