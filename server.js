@@ -124,7 +124,7 @@ app.get('/test-db', function (req, res) {
 
 app.get('/articles/articleName', function (req, res) {
     
-    var articleName=rew.params.articleName;
+    var articleName=req.params.articleName;
     pool.query("select * from articles where title='"+ articleName+"'",function(err,result){
          if(err)
          {
@@ -132,7 +132,7 @@ app.get('/articles/articleName', function (req, res) {
          }
          else
          {
-             if(res.rows.length==0)
+             if(res.rows.length===0)
              {
                  res.status(404).send("article not found");
                  
