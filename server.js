@@ -74,7 +74,7 @@ var htmlTemplate=`
                     ${heading};
                 </div>
                 <div>
-                   ${date.toDateString}
+                   ${date.toDateString()}
                 </div>
                 <div>
                    ${content}
