@@ -163,7 +163,6 @@ function hash(input,salt){
     return hashed.toString('hex');
 }
 app.get('/hash/:input', function (req, res) {
-    
   var hashedString=hash(req.params.input,'this-is-some-random-string');
   res.send(hashedString);
 });
