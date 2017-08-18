@@ -164,8 +164,8 @@ app.get('/ui/main.js', function (req, res) {
 }*/
 app.get('/hash/:input', function (req, res) {
     res.send( "select * from article where title='"+ articleName+"'");
-  var hashedString=hash(req.params.input,'this-is-some-random-string');
-  res.send(hashedString);
+  //var hashedString=hash(req.params.input,'this-is-some-random-string');
+  //res.send(hashedString);
 });
 
 
