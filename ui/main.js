@@ -52,7 +52,7 @@ submit.onclick=function(){
           }
           else if(request.status===403)
           {
-              alert('user name and passwords are correct');
+              alert('user name and passwords are incorrect');
           }
           else if(request.status===500)
           {
