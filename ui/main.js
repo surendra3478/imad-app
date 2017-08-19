@@ -40,7 +40,7 @@ var submit=document.getElementById("submit_btn");
 
 submit.onclick=function(){
    
-    
+    alert("submit_btn");
     var request=new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (request.readyState === XMLHttpRequest.DONE) {
