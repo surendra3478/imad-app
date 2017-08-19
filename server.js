@@ -14,7 +14,7 @@ var config={
 
 var app = express();
 app.use(morgan('combined'));
-app.user(bodyParser.son());
+app.user(bodyParser.json());
 var articles= {
    'article-one' : {
     title:`Article one heading`,
@@ -180,7 +180,7 @@ app.post('/create-user', function (req, res) {
      }
      else
      {
-         res.send(JSON.stringify(result.rows));
+         res.send("user Created successfully",username);
      }
  });
    
