@@ -45,25 +45,26 @@ submit.onclick=function(){
     request.onreadystatechange = function(){
         if (request.readyState === XMLHttpRequest.DONE) {
         // Everything is good, the response was received.
-          if(request.status==200)
+          if(request.status===200)
           {
-            
-            var list=``;
-           names=JSON.parse(request.responseText);
-         // alert(names);
-          for(var i=0;i<names.length;i++)
-          {
-              list+='<li>'+names[i]+'</li>';
+            console.log('user logged in');
+            alert('logged in succesfully');
           }
-          var ui=document.getElementById('namelist');
-           
-           ui.innerHTML=list;
+          else if(request.status===403)
+          {
+              alert('user name and passwords are correct');
+          }
+          else if(request.status===500)
+          {
+              alert('some thing went wrong');
           }
         }  
     };
      var username=document.getElementById("username").value;
      var password=document.getElementById("password").value;
+     console.log(username);
+     console.log(password);
     request.open('POST', 'http://surendrakakinada.imad.hasura-app.io/submit-btn/?name='+name1, true);
-    request.send(null);
+    request.send(JSON.stringify({username:username, password:password}));
   
 };
