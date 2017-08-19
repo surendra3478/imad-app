@@ -37,10 +37,10 @@ btn.onclick=function(){
 
 
 var submit=document.getElementById("submit_btn");
-var names=[];
+
 submit.onclick=function(){
-    var nameInput=document.getElementById("name");
-    var name1=nameInput.value;
+   
+    
     var request=new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -61,7 +61,9 @@ submit.onclick=function(){
           }
         }  
     };
-    request.open('GET', 'http://surendrakakinada.imad.hasura-app.io/submit-btn/?name='+name1, true);
+     var username=document.getElementById("username").value;
+     var password=document.getElementById("password").value;
+    request.open('POST', 'http://surendrakakinada.imad.hasura-app.io/submit-btn/?name='+name1, true);
     request.send(null);
   
 };
