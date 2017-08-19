@@ -180,7 +180,7 @@ app.post('/create-user', function (req, res) {
      }
      else
      {
-         res.send("user Created successfully",username);
+         res.send("user Created successfully",username.dbString);
      }
  });
    
