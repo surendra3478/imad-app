@@ -198,36 +198,36 @@ app.post('/nlogin', function (req, res) {
   
  pool.query('select * from "user" where username= $1',[username],function(err,result){
       if (err)
-        {
-        res.status(500).send(err.toString());
+    {
+    res.status(500).send(err.toString());
+    }
+    else {
+    if (result.rows.length===0)
+    {
+    res.send(403).send('1 username/password invalid'+username);
+    }
+    else 
+    {
+    // console.log('before dbstring'+result.rows[0].password);
+    var dbString=result.rows[0].password;
+    var salt=dbString.spilt('$')[2];
+    
+              //hash the user entered password after adding SALT & check this with what was stored in table
+              //console.log('before calling hash fn');
+    
+              var hashedString=hash(password,salt);
+              //console.log('before comparing'+hashedString+":"+dbString);
+    
+              if (hashedString === dbString){
+    
+                 res.send('credentials are corrrect');
+              }
+              else 
+              {
+                  res.send(403).send('2 username/password invalid');
+              }
+          }   
         }
-        else {
-        if (result.rows.length===0)
-        {
-        res.send(403).send('1 username/password invalid'+username);
-        }
-        else 
-        {
-        // console.log('before dbstring'+result.rows[0].password);
-        var dbString=result.rows[0].password;
-        var salt=dbString.spilt('$')[2];
-        
-                  //hash the user entered password after adding SALT & check this with what was stored in table
-                  //console.log('before calling hash fn');
-        
-                  var hashedString=hash(password,salt);
-                  //console.log('before comparing'+hashedString+":"+dbString);
-        
-                  if (hashedString === dbString){
-        
-                     res.send('credentials are corrrect');
-                  }
-                  else 
-                  {
-                      res.send(403).send('2 username/password invalid');
-                  }
-              }   
-            }
  });
    
 });
