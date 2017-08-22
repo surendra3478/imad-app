@@ -1,8 +1,3 @@
-console.log('Loaded!');
-
-
-
-
 
 //submit
 
