@@ -196,7 +196,7 @@ app.post('/create-user', function (req, res) {
 app.post('/login', function (req, res) {
  var username=req.body.username;
  var password=req.body.password;
-  res.send('select * from "user" where username= $1',[username]);
+  
  pool.query('select * from "user" where username= $1',[username],function(err,result){
       if (err)
     {
@@ -205,7 +205,8 @@ app.post('/login', function (req, res) {
     else {
     if (result.rows.length===0)
     {
-    res.send(403).send('1 username/password invalid'+username);
+        res.send('select * from "user" where username= $1',[username]);
+    //res.send(403).send('1 username/password invalid'+username);
     }
     else 
     {
