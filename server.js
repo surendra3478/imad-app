@@ -205,8 +205,8 @@ app.post('/login', function (req, res) {
     else {
     if (result.rows.length===0)
     {
-        res.send('select * from "user" where username= $1',[username]);
-    //res.send(403).send('1 username/password invalid'+username);
+        //res.send('select * from "user" where username= $1',[username]);
+    res.send(403).send('1 username/password invalid'+username);
     }
     else 
     {
