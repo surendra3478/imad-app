@@ -197,7 +197,7 @@ app.post('/nlogin', function (req, res) {
  var username=req.body.username;
  var password=req.body.password;
  
-  
+ alert(res.status); 
  pool.query('select * from "user" where username= $1',[username],function(err,result){
       if (err)
     {
