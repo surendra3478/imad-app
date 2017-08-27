@@ -177,7 +177,7 @@ app.post('/create-user', function (req, res) {
  //var salt='This-is-some-random-string';
  var dbString=hash(password,salt);
  // dbString='hex';
- pool.query('insert into "user" (username,password) values ($1,$2)' ,[usename,dbString],function(err,result){
+ pool.query('insert into "user" (username,password) values ($1,$2)' ,[username,dbString],function(err,result){
       //res.send("user");
      if(err)
      {
