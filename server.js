@@ -193,11 +193,9 @@ app.post('/create-user', function (req, res) {
 });
 
 
-
 app.post('/login', function (req, res) {
  var username=req.body.username;
  var password=req.body.password;
-  
  pool.query('select * from "user" where username=$1',[username],function(err,result){
       if (err)
     {
@@ -217,9 +215,6 @@ app.post('/login', function (req, res) {
     // console.log('before dbstring'+result.rows[0].password);
     var dbString=result.rows[0].password;
     var salt=dbString.spilt('$')[2];
-    
-              //hash the user entered password after adding SALT & check this with what was stored in table
-              //console.log('before calling hash fn');
     
               var hashedString=hash(password,salt);
               //console.log('before comparing'+hashedString+":"+dbString);
