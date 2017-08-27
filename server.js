@@ -202,7 +202,7 @@ app.post('/login', function (req, res) {
       if (err)
     {
         //res.status(500).send();
-    res.status(560).send(err.toString());
+    res.status(500).send(err.toString());
     }
     else {
     if (result.rows.length===0)
