@@ -205,14 +205,11 @@ app.post('/create-user', function (req, res) {
     else {
     if (result.rows.length===0)
     {
-       
-        //res.send('select * from "user" where username= $1',[username]);
     res.send(403).send('1 username/password invalid'+username);
     //res.send(403).send('select * from "user" where username= $1',[username]);
     }
     else 
     {
-    // console.log('before dbstring'+result.rows[0].password);
     var dbString=result.rows[0].password;
     var salt=dbString.spilt('$')[2];
     
@@ -232,8 +229,6 @@ app.post('/create-user', function (req, res) {
  });
    
 }); */
-
-
 app.post('/login',function(req,res){
      var username=req.body.username;
      var password=req.body.password;
