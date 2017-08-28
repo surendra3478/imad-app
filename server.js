@@ -280,7 +280,6 @@ app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
 
-
 app.get('/check-login',function (req,res){
     if( req.session && req.session.auth && req.session.auth.userId)
     {
