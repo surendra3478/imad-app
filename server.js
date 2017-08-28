@@ -262,6 +262,7 @@ app.post('/login',function(req,res){
         
                   if (hashedString === dbString){
         
+                     req.session.auth={userId : result.rows[0].id};
                      res.send('credentials are corrrect');
                   }
                   else 
@@ -274,6 +275,9 @@ app.post('/login',function(req,res){
  
 });
 
+app.post('/check-login',function(req,res){
+    
+});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
