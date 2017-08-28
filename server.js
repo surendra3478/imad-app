@@ -193,7 +193,7 @@ app.post('/create-user', function (req, res) {
 });
 
 
-app.post('/login', function (req, res) {
+app.post('/logino', function (req, res) {
  var username=req.body.username;
  var password=req.body.password;
  pool.query('select * from "user" where username=$1',[username],function(err,result){
@@ -233,6 +233,25 @@ app.post('/login', function (req, res) {
    
 });
 
+
+app.post('/login',function(req,res){
+var username=req.body.username;
+var password=req.body.password;
+pool.query('SELECT * FROM "user" WHERE username = $1',[username],function(err,result){
+//console.log('in pool query');
+if (err)
+{
+res.status(500).send(err.toString());
+}
+else {
+    if (result.rows.length===0)
+    {
+    res.send(403).send('1 username/password invalid'+username);
+    }
+}
+
+});
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
